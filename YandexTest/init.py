@@ -10,44 +10,45 @@ urldef = 'https://petstore.swagger.io/v2/'
 idpet = 1
 
 
-def GET_Pet(id: int):
+def GET_Pet(id):
     url = urldef + f'pet/{id}'
     return requests.get(url)
 
-def GET_Pet_Status(stat: str):
+def GET_Pet_Status(stat):
     url = urldef + f"pet/findByStatus?status='{stat}'"
     return requests.get(url)
 
 def GET_Store_Inv():
     return requests.get(urldef+'store/inventory')
 
-def GET_Store_OrdId(id: int):
+def GET_Store_OrdId(id):
     url = urldef+ f'store/order/{id}'
     return requests.get(url)
 
-def GET_User_Name(name: str):
+def GET_User_Name(name):
     url = urldef + f'user/{name}'
     return requests.get(url)
 
-def GET_User_LI(name:str, passw:str):
+def GET_User_LI(name, passw):
     url = urldef + f"user/login?username='{name}',password='{passw}'"
     return requests.get(url)
 
 def GET_User_LO():
     return requests.get(urldef+'user/logout')
 
-def DELETE_Pet(id:int):
+def DELETE_Pet(id):
     url = urldef + f'pet/{id}'
     return requests.delete(url)
 
-def DELETE_Ord(id:int):
+def DELETE_Ord(id):
     url = urldef + f'store/order/{id}'
     return requests.delete(url)
 
-def DELETE_User(name: str):
+def DELETE_User(name):
     url = urldef + f'user/{name}'
     return requests.delete(url)
 
-
-# post = requests.post(f'{urldef}pet', json=json_string, headers={"Content-Type": "application/json"})
-aaa = DELETE_Pet(21)
+# post = requests.put(f'{urldef}pet', json=json_string)
+# print(post.text)
+r = GET_Pet(100)
+print(r.text)
